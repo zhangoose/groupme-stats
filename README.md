@@ -1,6 +1,8 @@
 Groupme Stats
 ====
 
+![travis](https://travis-ci.org/zhangoose/groupme-stats.svg?branch=master)
+
 **WIP**
 
 ### Local Setup

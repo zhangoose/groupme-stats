@@ -1,0 +1,16 @@
+<div ng-controller="StatsController">
+    <h1>the groups</h1>
+    <div ng-repeat="group in groupList">
+        <div ng-click="loadMessages(group.group_id);">
+            {{ group.name }}
+        </div>
+    </div>
+    
+    <h1>their messages</h1>
+    <div ng-repeat="(user, messageCount) in countMessagesByUser">
+        <div>
+            {{ user }}: {{ messageCount }}
+        </div>
+    </div>
+    
+</div>

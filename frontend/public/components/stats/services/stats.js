@@ -1,0 +1,52 @@
+angular.module('StatsService', ['ngResource'])
+    .factory('Groups', function($resource) {
+        return {
+            query: function(accessToken) {
+                return $resource(
+                    "http://localhost:5000/".concat('groups'),
+                    {},
+                    {
+                        "query": {
+                            method: "GET",
+                            headers: {
+                                "Content-Type": "application/json",
+                                "Access-Control-Allow-Credentials": true,
+                                "Authorization": accessToken
+                            }
+
+                        }
+                    }
+                ).query();
+            }
+        }
+    })
+
+    .factory('Messages', function($resource) {
+        return {
+            query: function(accessToken, groupId, offset, bucketBy) {
+                return $resource(
+                    "http://localhost:5000/".concat('groups/', groupId, '/messages'),
+                    {},
+                    {
+                        "query": {
+
+                            method: "GET",
+                            headers: {
+                                "Content-Type": "application/json",
+                                "Access-Control-Allow-Credentials": true,
+                                "Authorization": accessToken
+                            },
+                            params: {
+                                "bucket_by": bucketBy,
+                                "offset": offset
+                            }
+                        }
+
+                    }
+                ).query()
+
+           }
+        }
+
+    });
+

@@ -1,0 +1,2 @@
+class GroupmeAPIError(Exception):
+    pass

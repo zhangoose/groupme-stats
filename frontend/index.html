@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="GroupmeStats">
+    <head>
+        <meta charset="utf-8">
+        <title>Groupme Stats</title>
+
+        <!--  Angular Setup -->
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+        <!--
+        <script src="bower_components/gulp/bin/gulp.js"></script>
+        <script src="bower_components/gulp-ng-config/gulp-ng-config.js"></script>
+        -->
+
+        <!-- Application Setup -->
+        <script src="public/appRoutes.js"></script>
+        <script src="public/app.js"></script>
+      
+        <!-- Config Setup -->
+        <script src="config/config.js"></script>
+
+        <!-- Services -->
+        <script src="public/components/stats/services/stats.js"></script>
+
+        <!--  Controllers -->
+        <script src="public/components/stats/controllers/statsController.js"></script>
+        <script src="public/components/oauth/controllers/oauthController.js"></script>
+
+    </head>
+    <body>
+        <!-- The dynamic templates will be served within this div -->
+        <ui-view></ui-view>
+    </body>
+</html>

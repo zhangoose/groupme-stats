@@ -1,15 +1,10 @@
-def bucket_by_person(message_response):
+def bucket_by_person(message_list):
     """
-    Parses messages json, organizing them by person ID.
+    Parses messages json, organizing them by sender ID.
     """
     messages_by_person = {}
 
-    try:
-        all_messages = message_response['response']['messages']
-    except KeyError:
-        return {}
-
-    for message in all_messages:
+    for message in message_list:
         sender_id = message['sender_id']
 
         if messages_by_person.get(sender_id):
@@ -20,11 +15,3 @@ def bucket_by_person(message_response):
     return messages_by_person
 
 
-
-def no_bucket(message_response):
-    """
-    """
-    try:
-        return message_response['response']['messages']
-    except KeyError:
-        return []

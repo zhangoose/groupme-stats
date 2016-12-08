@@ -10,8 +10,8 @@ angular.module('Stats')
             $scope.groupList = result.data;
         });
 
-        $scope.loadMessages = function(groupId){
-            Messages.query(accessToken, groupId, "10", "user").$promise.then(function(result) {
+        $scope.loadMessages = function(groupId, startDate, endDate){
+            Messages.query(accessToken, groupId, startDate, endDate, "user").$promise.then(function(result) {
                 var messagesByUser = result.data;
                 var countMessagesByUser = {};
 

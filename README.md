@@ -49,3 +49,12 @@ node index.js
 ```
 
 Go to `localhost:3000`! 
+
+### Tests
+
+API tests are powered by py.test.
+
+```
+cd backend
+pytest tests
+```

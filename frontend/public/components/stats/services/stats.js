@@ -23,7 +23,7 @@ angular.module('StatsService', ['ngResource'])
 
     .factory('Messages', function($resource) {
         return {
-            query: function(accessToken, groupId, offset, bucketBy) {
+            query: function(accessToken, groupId, startDate, endDate, bucketBy) {
                 return $resource(
                     "http://localhost:5000/".concat('groups/', groupId, '/messages'),
                     {},
@@ -38,7 +38,8 @@ angular.module('StatsService', ['ngResource'])
                             },
                             params: {
                                 "bucket_by": bucketBy,
-                                "offset": offset
+                                "start_date": startDate,
+                                "end_date": endDate
                             }
                         }
 

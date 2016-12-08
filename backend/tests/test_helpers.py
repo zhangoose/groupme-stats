@@ -1,11 +1,11 @@
 import pytest
 import mock
 
-from ..helpers import filter_messages
+from ..helpers import filter_messages, validate_list_messages_args
 from ..errors import GroupmeAPIError
 
 
-def test_filter_messages():
+def test_filter_messages_success():
     api = mock.Mock()
     api.get_messages.side_effect = [
         {
@@ -76,3 +76,15 @@ def test_filter_messages_error():
     actual = filter_messages(api, "555", 0, 0)
 
     assert actual == []
+
+
+def test_validate_list_messages_args():
+    args = {
+        "bucket_by": "user",
+        "start_date": "1481068800",
+        "end_date": "1481241600"
+    }
+
+    actual = validate_list_messages_args(args)
+
+    assert actual == True

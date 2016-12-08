@@ -11,7 +11,7 @@ def validate_list_messages_args(args):
         "user", None
     ]
 
-    if not args.get('offset'):
+    if not args.get('start_date') and not args.get('end_date'):
         return False
     if args.get('bucket_by') not in BUCKET_BY_OPTIONS:
         return False

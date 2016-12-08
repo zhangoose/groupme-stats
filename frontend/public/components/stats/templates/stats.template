@@ -1,7 +1,7 @@
 <div ng-controller="StatsController">
     <h1>the groups</h1>
     <div ng-repeat="group in groupList">
-        <div ng-click="loadMessages(group.group_id);">
+        <div ng-click="loadMessages(group.group_id, 1481155200, 1481227227);">
             {{ group.name }}
         </div>
     </div>

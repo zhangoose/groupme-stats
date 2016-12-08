@@ -1,0 +1,7 @@
+node_modules
+config.json
+config
+bower_components
+env
+.pyc
+.env

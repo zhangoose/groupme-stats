@@ -33,20 +33,21 @@ class GroupmeAPI(object):
         """
         Calls the `/groups` endpoint.
 
-        Returns (<status_code>, <json_response>).
+        Returns the json_response.
         """
         response = self._get("groups")
 
         return response.json()
 
-    def get_messages(self, group_id, limit=100):
+    def get_messages(self, group_id, limit=100, before_id=""):
         """
         Calls the `/groups/{group_id}/messages` endpoint with a limit defaulted
         to 100.
 
-        Returns (<status_code>, <json_response>).
+        Returns the json_response.
         """
-        url = "groups/{}/messages?limit={}".format(group_id, limit)
+        url = "groups/{}/messages?limit={}&before_id={}".format(
+            group_id, limit, before_id)
         response = self._get(url)
 
         return response.json()

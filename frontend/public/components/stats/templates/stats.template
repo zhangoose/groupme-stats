@@ -1,25 +1,39 @@
 <div ng-controller="StatsController">
-    <div id="date-picker">
-        <datepicker date-format="shortDate" datepicker-class="datepicker_css">
-            <input ng-model="startDate" ng-change="refresh();"/>
-        </datepicker>
-        <datepicker date-format="shortDate" datepicker-class="datepicker_css">
-            <input ng-model="endDate" ng-change="refresh();"/>
-        </datepicker>
+
+    <div class="navBar">
+        <h3>Date range:</h3>
+        <div class="dateSelection">
+            <datepicker date-format="shortDate" datepicker-class="datepicker_css">
+                <input ng-model="startDate" ng-change="refresh();"/>
+            </datepicker>
+            <span>to</span>
+            <datepicker date-format="shortDate" datepicker-class="datepicker_css">
+                <input ng-model="endDate" ng-change="refresh();"/>
+            </datepicker>
+        </div>
+        
+        <div class="navList">
+            <h3>Groups:</h3>
+            <div ng-repeat="group in groupList">
+                <div class="navElement" ng-click="selectGroup(group); refresh();" ng-class="{navSelected: groupSelected == group}">
+                    {{ group.name }}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content">
+        <h1>Posting Frequencies</h1>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Message Count</th>
+            </tr>
+            <tr ng-repeat="(user, messageCount) in countMessagesByUser">
+                <td>{{ user }}</td>
+                <td>{{ messageCount }}</td>
+            </tr>
+        </table>
     </div>
 
-    <h1>the groups</h1>
-    <div ng-repeat="group in groupList">
-        <div ng-click="selectGroup(group); refresh();">
-            {{ group.name }}
-        </div>
-    </div>
-    
-    <h1>their messages</h1>
-    <div ng-repeat="(user, messageCount) in countMessagesByUser">
-        <div>
-            {{ user }}: {{ messageCount }}
-        </div>
-    </div>
-    
 </div>

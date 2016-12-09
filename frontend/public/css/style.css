@@ -1,3 +1,72 @@
 .datepicker_css {
-    width: 30%;
+    width: 20%;
+}
+
+.navBar {
+    position: fixed;
+    overflow: auto;
+    height: 100%;
+    width: 20%;
+    background-color: #e5efff;
+    padding-left: 2%;
+    font-size: 1.3em;
+    font-family: Helvetica, Arial;
+}
+
+/* =========== DATE SELECTION ========= */
+
+.navBar .dateSelection {
+    padding-left: 2%;
+}
+
+.navBar .dateSelection > span {
+    font-size: 0.7em;
+}
+
+.navBar .dateSelection > datepicker > input {
+    padding: 2%;
+    font-size: 1.3em;
+    border: none;
+}
+
+
+/* =========== GROUP SELECTION ========== */
+
+.navBar .navList .navElement {
+    font-size: 1em;
+    padding: 2%;
+}
+
+.navBar .navList > h3{
+    padding-top: 2%;
+}
+
+.navSelected {
+    background-color: white;
+}
+
+/* =========== DATA DISPLAY ========== */
+
+.content {
+    margin-left: 30%;
+    font-family: Helvetica, Arial;
+}
+
+.content > table {
+    width: 80%;
+    max-width:80%;
+    text-align: left;
+}
+
+.content > table th {
+    background-color: #e5efff;
+    width: 40%;
+}
+
+.content > table tr {
+    height: 2em;
+}
+
+.content > table tr:nth-child(odd) td {
+    background-color: rgba(229, 239, 255, 0.78);
 }

@@ -1,4 +1,4 @@
-angular.module('StatsService', ['ngResource'])
+angular.module('Stats')
     .factory('Groups', function($resource) {
         return {
             query: function(accessToken) {
@@ -49,5 +49,8 @@ angular.module('StatsService', ['ngResource'])
            }
         }
 
+
     });
+
+
 

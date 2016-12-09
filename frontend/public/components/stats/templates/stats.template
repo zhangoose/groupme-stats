@@ -1,7 +1,16 @@
 <div ng-controller="StatsController">
+    <div id="date-picker">
+        <datepicker date-format="shortDate" datepicker-class="datepicker_css">
+            <input ng-model="startDate" ng-change="refresh();"/>
+        </datepicker>
+        <datepicker date-format="shortDate" datepicker-class="datepicker_css">
+            <input ng-model="endDate" ng-change="refresh();"/>
+        </datepicker>
+    </div>
+
     <h1>the groups</h1>
     <div ng-repeat="group in groupList">
-        <div ng-click="loadMessages(group.group_id, 1481155200, 1481227227);">
+        <div ng-click="selectGroup(group); refresh();">
             {{ group.name }}
         </div>
     </div>

@@ -1,30 +1,32 @@
 angular.module('Stats')
-    .controller('StatsController', ['$scope', '$location', 'Groups', 'Messages', function($scope, $location, Groups, Messages) {
+    .controller('StatsController', ['$scope', '$location', 'StatsManager', function($scope, $location, StatsManager) {
         var params = $location.search();
         var accessToken = params['access_token'] || null;
 
-        $scope.groupSelected = "";
-        $scope.groupList = [];
+        var statsManager = StatsManager.init(accessToken);
 
-        Groups.query(accessToken).$promise.then(function(result) {
-            $scope.groupList = result.data;
+        $scope.groupSelected = undefined;
+        $scope.groupList = undefined;
+
+        statsManager.loadGroups().then(function(result) {
+            $scope.groupList = result;
         });
 
-        $scope.loadMessages = function(groupId, startDate, endDate){
-            Messages.query(accessToken, groupId, startDate, endDate, "user").$promise.then(function(result) {
-                var messagesByUser = result.data;
-                var countMessagesByUser = {};
+        $scope.refresh = function() {
+            if ($scope.groupSelected != undefined && $scope.startDate != undefined && $scope.endDate != undefined) {
+                statsManager.loadMessages(
+                    $scope.groupSelected.group_id,
+                    $scope.startDate,
+                    $scope.endDate,
+                    "user"
+                ).then(function(result) {
+                    $scope.countMessagesByUser = result;
+                });
+            }
+        };
 
-                for (var userId in messagesByUser) {
-                    var name = messagesByUser[userId][0]['name'];
-                    var count = messagesByUser[userId].length;
-                    countMessagesByUser[name] = count;
-
-                }
-
-                $scope.countMessagesByUser = countMessagesByUser;
-
-            });
+        $scope.selectGroup = function(group) {
+            $scope.groupSelected = group;
         };
 
 

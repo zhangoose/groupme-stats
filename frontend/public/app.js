@@ -1,6 +1,6 @@
 'use strict';
 
-var stats = angular.module("Stats", []);
+var stats = angular.module("Stats", ['720kb.datepicker', 'ngResource']);
 var oauth = angular.module("Oauth", []);
 
 angular.module('GroupmeStats', [
@@ -8,7 +8,6 @@ angular.module('GroupmeStats', [
 
     'Stats',
     'Oauth',
-    'StatsService'
 ])
 
 angular.module('GroupmeStats')

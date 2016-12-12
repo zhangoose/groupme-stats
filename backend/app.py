@@ -5,7 +5,7 @@ import requests
 
 from client import GroupmeAPI
 from helpers import validate_list_messages_args, filter_messages
-from bucket import bucket_by_person
+from bucket import bucket_by_user, bucket_by_user_day
 from contextmanagers import call_api
 from errors import GroupmeAPIError
 
@@ -53,12 +53,14 @@ def list_messages(group_id):
 
     data = []
     if bucket_by == "user":
-        data = bucket_by_person(messages)
+        data = bucket_by_user(messages)
+    elif bucket_by == "user_day":
+        print("\n\nhi\n\n")
+        data = bucket_by_user_day(messages)
     else:
         data = messages
 
     return jsonify({"data": data})
-
 
 
 if __name__ == "__main__":

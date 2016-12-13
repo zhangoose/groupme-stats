@@ -1,10 +1,11 @@
 'use strict';
 
-var stats = angular.module("Stats", ['720kb.datepicker', 'ngResource']);
+var stats = angular.module("Stats", ['720kb.datepicker', 'ngResource', 'nvd3']);
 var oauth = angular.module("Oauth", []);
 
 angular.module('GroupmeStats', [
     'appRoutes',
+    'nvd3',
 
     'Stats',
     'Oauth',

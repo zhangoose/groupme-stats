@@ -13,14 +13,7 @@ angular.module('Stats')
                 var countMessagesByUser = {};
 
                 return Messages.query(this.accessToken, groupId, startEpoch, endEpoch, bucketBy).$promise.then(function(result) {
-                    var messagesByUser = result.data;
-
-                    for (var userId in messagesByUser) {
-                        var name = messagesByUser[userId][0]['name'];
-                        var count = messagesByUser[userId].length;
-                        countMessagesByUser[name] = count;
-                    }
-                    return countMessagesByUser;
+                    return result.data;
                 });
 
             },
@@ -31,7 +24,8 @@ angular.module('Stats')
                 });
 
             }
-        }
+
+        };
 
     });
 

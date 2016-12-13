@@ -20,20 +20,19 @@
                 </div>
             </div>
         </div>
+        
+        <div class="navList">
+            <h3>Members:</h3>
+            <div class="navElement" ng-repeat="member in groupSelected.members" ng-click="selectMember(member); refresh();" ng-class="{navSelected: memberSelected == member}">
+                {{ member.nickname }}
+            </div>
+        </div>
+
     </div>
     
     <div class="content">
         <h1>Posting Frequencies</h1>
-        <table>
-            <tr>
-                <th>Name</th>
-                <th>Message Count</th>
-            </tr>
-            <tr ng-repeat="(user, messageCount) in countMessagesByUser">
-                <td>{{ user }}</td>
-                <td>{{ messageCount }}</td>
-            </tr>
-        </table>
+        <nvd3 options="d3options" data="data"></nvd3>
     </div>
 
 </div>

@@ -32,6 +32,10 @@
 
 /* =========== GROUP SELECTION ========== */
 
+.navSelected {
+    background-color: white;
+}
+
 .navBar .navList .navElement {
     font-size: 1em;
     padding: 2%;
@@ -41,10 +45,6 @@
     padding-top: 2%;
 }
 
-.navSelected {
-    background-color: white;
-}
-
 /* =========== DATA DISPLAY ========== */
 
 .content {
@@ -52,21 +52,3 @@
     font-family: Helvetica, Arial;
 }
 
-.content > table {
-    width: 80%;
-    max-width:80%;
-    text-align: left;
-}
-
-.content > table th {
-    background-color: #e5efff;
-    width: 40%;
-}
-
-.content > table tr {
-    height: 2em;
-}
-
-.content > table tr:nth-child(odd) td {
-    background-color: rgba(229, 239, 255, 0.78);
-}

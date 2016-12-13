@@ -55,7 +55,6 @@ def list_messages(group_id):
     if bucket_by == "user":
         data = bucket_by_user(messages)
     elif bucket_by == "user_day":
-        print("\n\nhi\n\n")
         data = bucket_by_user_day(messages)
     else:
         data = messages

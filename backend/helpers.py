@@ -23,7 +23,7 @@ def filter_messages(api, group_id, start_date, end_date):
     Uses the Groupme `api` given to call Groupme for messages from epoch
     represented `start_date` to `end_date`.
 
-    Messages in this list should have timestamps [start_date, end_date)
+    Messages in this list should have timestamps [start_date, end_date]
 
     Returns a list of messages.
     """
@@ -31,7 +31,7 @@ def filter_messages(api, group_id, start_date, end_date):
     last_sender_id = ""
     reached_start = False
 
-    while not reached_start: # lol fuck me
+    while not reached_start:
         try:
             response = api.get_messages(
                 group_id=group_id,
@@ -45,7 +45,7 @@ def filter_messages(api, group_id, start_date, end_date):
         messages = response['response']['messages'] 
         for message in messages:
             created_at = message['created_at']
-            if created_at >= start_date and created_at < end_date:
+            if created_at >= start_date and created_at <= end_date:
                 # within the range
                 all_messages.append(message)
             elif created_at < start_date:

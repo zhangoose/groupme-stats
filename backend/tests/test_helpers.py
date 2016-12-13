@@ -19,12 +19,12 @@ def test_filter_messages_success():
                     {
                         "text": "beware of the beast",
                         "id": "789", 
-                        "created_at": 1481220988
+                        "created_at": 1481241600 # end date
                     },
                     {
                         "text": "everyone has a torch to burn",
                         "id": "456",
-                        "created_at": 1481172236
+                        "created_at": 1481172236 # in between
                     }
                 ]
             }
@@ -35,7 +35,7 @@ def test_filter_messages_success():
                     {
                         "text": "what are you doing here?",
                         "id": "123",
-                        "created_at": 1481170960
+                        "created_at": 1481068800 # start date
                     },
                     {
                         "text": "this shouldn't be returned",
@@ -50,7 +50,7 @@ def test_filter_messages_success():
         {
             "text": "beware of the beast",
             "id": "789", 
-            "created_at": 1481220988
+            "created_at": 1481241600
         },
         {
             "text": "everyone has a torch to burn",
@@ -60,11 +60,13 @@ def test_filter_messages_success():
         {
             "text": "what are you doing here?",
             "id": "123",
-            "created_at": 1481170960
+            "created_at": 1481068800
         }
     ]
 
     actual = filter_messages(api, "555", 1481068800, 1481241600)
+    # 1481068800 = Wed, 07 Dec 2016 00:00:00 GMT
+    # 1481241600 = Fri, 09 Dec 2016 00:00:00 GMT
     
     assert actual == expected
 

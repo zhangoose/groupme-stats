@@ -18,7 +18,7 @@ angular.module('Stats')
 
             },
 
-            messagesByUserDay: function(messages, startDate, endDate) {
+            messagesByUserDay: function(messages, start, end) {
                 var data = [
                     {
                         "key": "Posts by day",
@@ -26,10 +26,17 @@ angular.module('Stats')
                         "values": []
                     }
                 ];
-                for (var day in messages) {
-                    data[0]['values'].push({"label": day, "value": messages[day]});
-                }
+                var endDate = new Date(end);
+                var currentDate = new Date(start);
 
+                while (currentDate.getTime() <= endDate.getTime()) {
+                    var formattedDate = "".concat(currentDate.getFullYear() + "-" + (currentDate.getMonth() + 1) + "-" + ("0" + currentDate.getDate()).slice(-2));
+                    data[0]['values'].push({
+                        "label": formattedDate,
+                        "value": (messages[formattedDate] != undefined ? messages[formattedDate] : 0)
+                    });
+                    currentDate = new Date(currentDate.getTime() + 86400000);
+                }
                 return data;
             }
 

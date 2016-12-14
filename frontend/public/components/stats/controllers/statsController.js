@@ -8,9 +8,11 @@ angular.module('Stats')
         $scope.groupSelected = undefined;
         $scope.groupList = undefined;
 
-        statsManager.loadGroups().then(function(result) {
-            $scope.groupList = result;
-        });
+        $scope.init = function() {
+            statsManager.loadGroups().then(function(result) {
+                $scope.groupList = result;
+            });
+        };
 
         $scope.refresh = function() {
             if ($scope.groupSelected != undefined && $scope.startDate != undefined && $scope.endDate != undefined) {
@@ -35,7 +37,9 @@ angular.module('Stats')
                         "user_day"
                     ).then(function(result) {
                         var messagesData = StatsRenderData.messagesByUserDay(
-                            StatsParser.countMessagesByUserDay(result, $scope.memberSelected.user_id)
+                            StatsParser.countMessagesByUserDay(result, $scope.memberSelected.user_id),
+                            $scope.startDate,
+                            $scope.endDate
                         );
                         $scope.refreshD3(messagesData);
                     });
@@ -54,6 +58,7 @@ angular.module('Stats')
 
 
         $scope.selectGroup = function(group) {
+            $scope.memberSelected = undefined;
             $scope.groupSelected = group;
         };
 
@@ -63,6 +68,9 @@ angular.module('Stats')
                     type: 'multiBarHorizontalChart',
                     height: 450,
                     width: 700,
+                    margin: {
+                        left: 150
+                    },
                     x: function(d){return d.label;},
                     y: function(d){return d.value;},
                     showControls: true,
@@ -80,7 +88,6 @@ angular.module('Stats')
                 }
             };
             $scope.data = messagesData;
-
         };
 
    }]);

@@ -9,7 +9,7 @@ angular.module('Stats')
 
             loadMessages: function(groupId, startDate, endDate, bucketBy) {
                 var startEpoch = new Date(startDate).getTime() / 1000;
-                var endEpoch = new Date(endDate).getTime() / 1000;
+                var endEpoch = new Date(endDate).getTime() / 1000 + 86399;
                 var countMessagesByUser = {};
 
                 return Messages.query(this.accessToken, groupId, startEpoch, endEpoch, bucketBy).$promise.then(function(result) {

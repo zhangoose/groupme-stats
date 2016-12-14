@@ -12,7 +12,7 @@
             </datepicker>
         </div>
         
-        <div class="navList">
+        <div class="navList" ng-init="init()">
             <h3>Groups:</h3>
             <div ng-repeat="group in groupList">
                 <div class="navElement" ng-click="selectGroup(group); refresh();" ng-class="{navSelected: groupSelected == group}">

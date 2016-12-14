@@ -4,7 +4,7 @@
 
 .navBar {
     position: fixed;
-    overflow: auto;
+    overflow: scroll;
     height: 100%;
     width: 20%;
     background-color: #e5efff;

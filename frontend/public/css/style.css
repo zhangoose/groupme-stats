@@ -1,3 +1,27 @@
+/* ========= OAUTH SECTION ============ */
+.smallBackground {
+    position: absolute;
+    background-color: #95b9f3;
+    width: 40%;
+    font-family: Helvetica, Arial;
+    text-align: center;
+    padding: 5em;
+    margin: auto;
+    top: 30%;
+    left: 25%;
+    border-top: 8px white dotted;
+}
+
+.smallBackground .clickable {
+    color: white;
+    font-size: 3em;
+    text-decoration: none;
+    text-transform: lowercase;
+}
+
+
+/* ========= NAV BAR ============= */
+
 .datepicker_css {
     width: 20%;
 }
@@ -28,7 +52,6 @@
     font-size: 1.3em;
     border: none;
 }
-
 
 /* =========== GROUP SELECTION ========== */
 

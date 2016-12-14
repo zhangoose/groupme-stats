@@ -1,4 +1,4 @@
-<h1>Authenticate with Groupme</h1>
-
-<a ng-href="https://oauth.groupme.com/oauth/authorize?client_id={{ clientId }}">Authenticate me</a>
+<div class="smallBackground">
+    <a class="clickable" ng-href="https://oauth.groupme.com/oauth/authorize?client_id={{ clientId }}">Login with Groupme</a>
+</div>
 

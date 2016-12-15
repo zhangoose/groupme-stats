@@ -10,10 +10,10 @@ from contextmanagers import call_api
 from errors import GroupmeAPIError
 
 
-app = Flask(__name__)
-CORS(app, supports_credentials=True)
+application = Flask(__name__)
+CORS(application, supports_credentials=True)
 
-@app.route('/groups', methods=['GET'])
+@application.route('/groups', methods=['GET'])
 def list_groups():
     access_token = request.headers.get('Authorization')
 
@@ -31,7 +31,7 @@ def list_groups():
     })
 
 
-@app.route('/groups/<group_id>/messages', methods=['GET'])
+@application.route('/groups/<group_id>/messages', methods=['GET'])
 def list_messages(group_id):
     # validation
     if not validate_list_messages_args(request.args):
@@ -63,6 +63,6 @@ def list_messages(group_id):
 
 
 if __name__ == "__main__":
-    app.debug = True
-    app.run()
+    application.debug = True
+    application.run()
 

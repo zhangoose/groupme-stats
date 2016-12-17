@@ -1,9 +1,9 @@
 angular.module('Stats')
-    .factory('Groups', function($resource) {
+    .factory('Groups', function($resource, API_URL) {
         return {
             query: function(accessToken) {
                 return $resource(
-                    "http://localhost:5000/".concat('groups'),
+                    API_URL.concat('groups'),
                     {},
                     {
                         "query": {
@@ -21,11 +21,11 @@ angular.module('Stats')
         }
     })
 
-    .factory('Messages', function($resource) {
+    .factory('Messages', function($resource, API_URL) {
         return {
             query: function(accessToken, groupId, startDate, endDate, bucketBy) {
                 return $resource(
-                    "http://localhost:5000/".concat('groups/', groupId, '/messages'),
+                    API_URL.concat('groups/', groupId, '/messages'),
                     {},
                     {
                         "query": {

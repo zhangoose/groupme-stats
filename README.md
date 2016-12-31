@@ -3,7 +3,13 @@ Groupme Stats
 
 ![travis](https://travis-ci.org/zhangoose/groupme-stats.svg?branch=master)
 
-**WIP**
+[See this live here!](https://gm-stats.us)
+
+See your GroupMe groups' posting stats through specific dates.
+
+![demo](https://d17oy1vhnax1f7.cloudfront.net/items/0h212X3u20100I0r0H2S/Screen%20Recording%202016-12-30%20at%2007.07%20PM.gif?v=04ed8e1a)
+
+**Still a WIP**
 
 ### Local Setup
 

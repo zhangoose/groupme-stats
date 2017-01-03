@@ -10,9 +10,14 @@ angular.module('Stats')
                         "values": []
                     }
                 ];
+
+                var sortedMessages = _.sortBy(messages, function(item) {
+                    return -item.count; // descending order
+                });
                 
-                for (var user in messages) {
-                    data[0]['values'].push({"label": user, "value": messages[user]});
+                for (var i in sortedMessages) {
+                    var item = sortedMessages[i]
+                    data[0]['values'].push({"label": item['name'], "value": item['count']});
                 }
                 return data;
 

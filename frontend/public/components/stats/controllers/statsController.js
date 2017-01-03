@@ -71,18 +71,23 @@ angular.module('Stats')
                     margin: {
                         left: 150
                     },
-                    x: function(d){return d.label;},
-                    y: function(d){return d.value;},
+                    x: function(d) {
+                       return d.label;
+                    },
+                    y: function(d) {
+                        return d.value;
+                    },
                     showControls: true,
                     showValues: true,
+                    valueFormat: d3.format('d'),
                     duration: 500,
                     xAxis: {
                         showMaxMin: false
                     },
                     yAxis: {
                         axisLabel: 'Values',
-                        tickFormat: function(d){
-                            return d3.format(',.2f')(d);
+                        tickFormat: function(d) {
+                            return d;
                         }
                     }
                 }

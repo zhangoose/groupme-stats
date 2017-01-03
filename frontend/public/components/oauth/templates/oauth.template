@@ -2,3 +2,6 @@
     <a class="clickable" ng-href="https://oauth.groupme.com/oauth/authorize?client_id={{ clientId }}">Login with Groupme</a>
 </div>
 
+<div class="smallInfo">
+    <p>maintained on <a href="https://github.com/zhangoose/groupme-stats">github</a></p>
+</div>

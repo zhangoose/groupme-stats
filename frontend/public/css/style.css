@@ -19,6 +19,18 @@
     text-transform: lowercase;
 }
 
+.smallInfo {
+    font-family: Helvetica, Arial;
+    position: absolute;
+    top: 70%;
+    left: 25%;
+    width: 50%;
+}
+
+.smallInfo > p {
+    text-align: center;
+}
+
 
 /* ========= NAV BAR ============= */
 

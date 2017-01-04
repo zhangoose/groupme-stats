@@ -35,7 +35,7 @@ angular.module('Stats')
                 var currentDate = new Date(start);
 
                 while (currentDate.getTime() <= endDate.getTime()) {
-                    var formattedDate = "".concat(currentDate.getFullYear() + "-" + (currentDate.getMonth() + 1) + "-" + ("0" + currentDate.getDate()).slice(-2));
+                    var formattedDate = "".concat(currentDate.getFullYear() + "-" + ("0" + (currentDate.getMonth() + 1)).slice(-2) + "-" + ("0" + currentDate.getDate()).slice(-2));
                     data[0]['values'].push({
                         "label": formattedDate,
                         "value": (messages[formattedDate] != undefined ? messages[formattedDate] : 0)

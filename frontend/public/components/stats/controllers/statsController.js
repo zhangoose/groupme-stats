@@ -16,6 +16,7 @@ angular.module('Stats')
 
         $scope.refresh = function() {
             if ($scope.groupSelected != undefined && $scope.startDate != undefined && $scope.endDate != undefined) {
+                $scope.graphLoading = true;
                 if ($scope.memberSelected == undefined) {
                     statsManager.loadMessages(
                         $scope.groupSelected.group_id,
@@ -27,6 +28,7 @@ angular.module('Stats')
                             StatsParser.countMessagesByUser(result)
                         );
                         $scope.refreshD3(messagesData);
+                        $scope.graphLoading = false;
                     });
                 }
                 else {
@@ -42,6 +44,7 @@ angular.module('Stats')
                             $scope.endDate
                         );
                         $scope.refreshD3(messagesData);
+                        $scope.graphLoading = false;
                     });
                 }
             }

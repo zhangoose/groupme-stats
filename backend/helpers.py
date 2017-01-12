@@ -8,7 +8,7 @@ def validate_list_messages_args(args):
     Returns True/False.
     """
     BUCKET_BY_OPTIONS = [
-        "user", "user_day", None
+        "user", "user_day", "day", None
     ]
 
     if not args.get('start_date') and not args.get('end_date'):

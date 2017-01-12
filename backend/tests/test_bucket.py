@@ -1,6 +1,6 @@
 import pytest
 
-from ..bucket import bucket_by_user, bucket_by_user_day
+from ..bucket import bucket_by_user, bucket_by_user_day, bucket_by_day
 
 
 def test_bucket_by_user_success():
@@ -77,4 +77,38 @@ def test_bucket_by_user_day():
     actual = bucket_by_user_day(message_list)
 
     assert actual == expected
+
+
+def test_bucket_by_day():
+    message_list = [
+        {
+            "sender_id": "1234",
+            "created_at": 1481364000,
+            "text": "we should ask him for help!"
+        },
+        {
+            "sender_id": "5678",
+            "created_at": 1481364000,
+            "text": "no, we should not ask him for help"
+        },
+        {
+            "sender_id": "1234",
+            "created_at": 1481492749,
+            "text": "but--!"
+        }
+    ]
+    expected = {
+        "2016-12-10": [
+            message_list[0],
+            message_list[1]
+        ],
+        "2016-12-11": [
+            message_list[2]
+        ]
+    }
+
+    actual = bucket_by_day(message_list)
+
+    assert actual == expected
+
 

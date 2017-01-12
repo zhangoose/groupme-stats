@@ -5,7 +5,7 @@ import requests
 
 from client import GroupmeAPI
 from helpers import validate_list_messages_args, filter_messages
-from bucket import bucket_by_user, bucket_by_user_day
+from bucket import bucket_by_user, bucket_by_user_day, bucket_by_day
 from contextmanagers import call_api
 from errors import GroupmeAPIError
 
@@ -56,6 +56,8 @@ def list_messages(group_id):
         data = bucket_by_user(messages)
     elif bucket_by == "user_day":
         data = bucket_by_user_day(messages)
+    elif bucket_by == "day":
+        data = bucket_by_day(messages)
     else:
         data = messages
 
